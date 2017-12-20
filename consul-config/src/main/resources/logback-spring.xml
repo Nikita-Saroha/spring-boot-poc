@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <timestamp key="fileTimestamp" datePattern="MMddyyyy"/>
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+	   <file>D:\\AppLogs\\/${fileTimestamp}.log</file>
+	   <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} %-5p %C:%L - %m%n</pattern>
+			<charset>utf8</charset>
+	   </encoder>
+	   <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- rollover daily -->
+			<fileNamePattern>D:\\AppLogs\\/%d{yyyy-MM-dd}.%i.log
+                        </fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>10MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+	</appender>
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSS} %-5p [%c] - %m%n</pattern>
+			<charset>utf8</charset>
+		</encoder>
+	</appender>
+	<root level="ERROR">
+        <appender-ref ref="file" />
+    </root>
+	<root level="INFO">
+		<appender-ref ref="console" />
+		<appender-ref ref="file" />
+    </root>
+</configuration>
