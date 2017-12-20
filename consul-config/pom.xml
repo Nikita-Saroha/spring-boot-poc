@@ -164,7 +164,6 @@
 							<targetPath>/</targetPath>
 							<directory>${project.build.directory}</directory>
 							<include>${project.build.finalName}.jar</include>
-							<include>newrelic.yml</include>
 						</resource>
 					</resources>
 				</configuration>
@@ -185,10 +184,10 @@
 								<resource>
 									<directory>${project.basedir}/src/main/resources</directory>
 									<filtering>false</filtering>
-									<includes>
+									<!-- <includes>
 										<include>newrelic.yml</include>
 										<include>newrelic.jar</include>
-									</includes>
+									</includes> -->
 								</resource>
 							</resources>
 						</configuration>
